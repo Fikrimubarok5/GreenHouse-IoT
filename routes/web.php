@@ -16,17 +16,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::controller(AuthController::class)->group(function () {
-    Route::get('/', 'create')->name('login');
-    Route::post('/logout', [AuthController::class, 'destroy'])->name('logout')->middleware('auth:sanctum');
-});
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::controller(DashboardController::class)->group(function () {
-    Route::get('/', 'index')->name('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::controller(AuthController::class)->group(function () {
+//     Route::get('/', 'create')->name('login');
+// });
+
+Route::get('/', function () {
+    if (auth()->check() && auth()->user()->hasVerifiedEmail()) {
+        return redirect()->route('dashboard');
+    } else {
+        return redirect()->route('login');
+    }
+});
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
+
+// Route::controller(DashboardController::class)->group(function () {
+//     Route::get('/', 'index')->name('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -1,64 +1,74 @@
-<x-app-layout>
-
-    <div class="py-12">
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <div class="row">
-                        <div class="row justify-content-end">
-                            <div class="col">
-                                <h1>Devices</h1>
-                            </div>
-                            <div class="col-auto">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Tambah Data
-                                </button>
-                            </div>
+@extends('layouts.app')
+@section('content')
+<div class="body-wrapper-inner">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 d-flex align-items-strech">
+            <div class="card w-100">
+                <div class="card-body">
+                    <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
+                        <div class="mb-3 mb-sm-0">
+                            <h1 class="card-title fw-semibold">Devices</h1>
                         </div>
-                        @php
-                        $i = 1;
-                        @endphp
-                        <table class="table table-hover">
-                            <thead>
-                              <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">id</th>
-                                <th scope="col">Nama Sensor</th>
-                                <th scope="col">Jenis</th>
-                                <th scope="col">Data</th>
-                                <th scope="col">Aksi</th>
-                              </tr>
-                            </thead>
-                            <tbody class="table-group-divider">
-                            @foreach($devices as $device)
-                              <tr>
-                                <th scope="row">{{ $i }}</th>
-                                <th scope="row">{{ $device->id }}</th>
-                                <td>
-                                    <a href="{{ Route('devicelog.show',[$device->id])}}">{{ $device->name }}</a>
-                                </td>
-                                <td>{{ $device->type }}</td>
-                                <td>{{ $device["value"] }}</td>
-                                <td class="d-flex align-items-center ">
-                                    <a class="flex-shrink-0 btn btn-warning me-2" href="#" data-bs-toggle="modal" data-bs-target="#editModal{{ Route('device.show',[$device->id])}}">Edit</a>
-                                    <form action="{{ route('device.destroy',[$device->id]) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger w-100">Delete</button>
-                                    </form>
-                                </td>
-                              </tr>
-                              @php
-                              $i++;
-                              @endphp
-                            @endforeach
-                            </tbody>
-                          </table>
+                        <div>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Tambah Data
+                            </button>
+                        </div>
+                    </div>
+                    @php
+                    $i = 1;
+                    @endphp
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">id</th>
+                            <th scope="col">Nama Sensor</th>
+                            <th scope="col">Jenis</th>
+                            <th scope="col">Data</th>
+                            <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                        @foreach($devices as $device)
+                            <tr>
+                            <th scope="row">{{ $i }}</th>
+                            <th scope="row">{{ $device->id }}</th>
+                            <td>
+                                <a href="{{ Route('devicelog.show',[$device->id])}}">{{ $device->name }}</a>
+                            </td>
+                            <td>{{ $device->type }}</td>
+                            <td>{{ $device["value"] }}</td>
+                            <td class="d-flex align-items-center ">
+                                <a class="flex-shrink-0 btn btn-warning me-2" href="#" data-bs-toggle="modal" data-bs-target="#editModal{{ Route('device.show',$device->id  )}}" data-bs-whatever="{{ Route('device.show',$device->id)}}">Edit</a>
+                                {{-- <a class="flex-shrink-0 btn btn-warning me-2" href="{{ route('device.show',[$device->id])}}" data-bs-toggle="modal" data-bs-target="#editModal{{ route('device.show',[$device->id])}}" data-bs-whatever="{{ route('device.show',[$device->id])}}">Edit</a> --}}
+                                {{-- <button class="btn btn-warning" data-toggle="modal" data-target="#editModal{{ route('device.show',[$device->id])}}" data-whatever="{{ route('device.show',[$device->id])}}">Update</button> --}}
+                                <form action="{{ route('device.destroy',[$device->id]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger w-100">Delete</button>
+                                </form>
+                            </td>
+                            @include('pages.editdevice')
+                            </tr>
+                            @php
+                            $i++;
+                            @endphp
+                        @endforeach
+                        </tbody>
+                        </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="px-6 py-6 text-center">
+            <p class="mb-0 fs-4">Developed by <a href="https://www.instagram.com/fikrimubarok05/" target="_blank"
+                class="pe-1 text-primary text-decoration-underline">@fikrimubarok05</a> 2024</p>
+          </div>
     </div>
+</div>
 
     <!-- Tambah Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -70,7 +80,7 @@
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('device.store') }}" method="POST">
-                        {{ csrf_field() }}
+                        @csrf
                         <div class="modal-body">
                             <div class="form-group">
                               <label>Nama Sensor</label>
@@ -85,11 +95,6 @@
                                     <option value="Actuator">Actuator</option>
                                 </select>
                             </div>
-
-                            {{-- <div class="form-group">
-                                <label>Value</label>
-                                <input type="text" name="value" class="form-control" placeholder="Masukkan nilai Value">
-                            </div> --}}
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -102,14 +107,14 @@
     </div>
 
     <!-- Edit Modal -->
-    <div class="modal fade" id="editModal{{ Route('device.show',[$device->id])}}" tabindex="-1" aria-labelledby="editModalLabel{{ Route('device.show',[$device->id])}}" aria-hidden="true">
+    {{-- <div class="modal fade" id="editModal{{ Route('device.show',[$device->id])}}"  tabindex="-1" aria-labelledby="editModalLabel{{ Route('device.show',[$device->id])}}" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="editModalLabel">Edit Device</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="/api/devices/{{ $device->id }}" method="POST">
+                <form action="{{ Route('device.update',[$device->id]) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="modal-body">
@@ -120,14 +125,11 @@
                         </div>
                         <div class="form-group">
                             <label>Type Sensor</label>
-                            <ul class="mb-3 list-group">
-                                @foreach ($devices as $device)
-                                    <li class="list-group-item">
-                                        <input type="radio" name="type" value="{{ $device->type }}" id="{{ $device->type }}">
-                                        <label for="{{ $device->type }}">{{ $device->type }}</label>
-                                    </li>
-                                @endforeach
-                            </ul>
+                            <br>
+                            <select class="form-control" name="type" id="type">
+                                <option value="Sensor">Sensor</option>
+                                <option value="Actuator">Actuator</option>
+                            </select>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -137,5 +139,5 @@
                 </form>
             </div>
         </div>
-    </div>
-</x-app-layout>
+    </div> --}}
+@endsection

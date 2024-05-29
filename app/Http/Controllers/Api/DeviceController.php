@@ -44,14 +44,14 @@ class DeviceController extends Controller
         ]);
 
         if ($device) {
-            // return redirect('/api/device')->with('success', 'Data saved');
-            return response()->json([
-                "message" => "device telah ditambahkan.",
-                "device" => $device
-            ], 201);
+            return redirect('/api/device')->with('success', 'Data saved');
+            // return response()->json([
+            //     "message" => "device telah ditambahkan.",
+            //     "device" => $device
+            // ], 201);
         } else {
-            // return redirect('/api/device')->with('error', 'Failed to save data');
-            return response()->json(['message' => 'Device tidak ditemukan.'], 404);
+            return redirect('/api/device')->with('error', 'Failed to save data');
+            // return response()->json(['message' => 'Device tidak ditemukan.'], 404);
         }
     }
 
@@ -60,7 +60,7 @@ class DeviceController extends Controller
      */
     public function show(string $id)
     {
-        $device = Device::find($id);
+        $device = Device::findOrFail($id);
         return view('pages.device', compact('device'));
     }
 
@@ -88,11 +88,21 @@ class DeviceController extends Controller
 
         $device->update($request->all());
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Device telah di update.',
-            'device' => $device
-        ]);
+        // return response()->json([
+        //     'status' => 'success',
+        //     'message' => 'Device telah di update.',
+        //     'device' => $device
+        // ]);
+        if ($device) {
+            return redirect('/api/device')->with('success', 'Data berhasil diubah');
+            // return response()->json([
+            //     "message" => "device telah ditambahkan.",
+            //     "device" => $device
+            // ], 201);
+        } else {
+            return redirect('/api/device')->with('error', 'Data gagal diubah');
+            // return response()->json(['message' => 'Device tidak ditemukan.'], 404);
+        }
     }
 
     /**
@@ -104,9 +114,11 @@ class DeviceController extends Controller
 
         if ($devices) {
             $devices->delete();
-            return response()->json(['message' => 'Device telah dihapus.'], 200);
+            // return response()->json(['message' => 'Device telah dihapus.'], 200);
+            return redirect('/api/device')->with('success', 'Data berhasil dihapus');
         } else {
-            return response()->json(['message' => 'Device tidak ditemukan.'], 404);
+            // return response()->json(['message' => 'Device tidak ditemukan.'], 404);
+            return redirect('/api/device')->with('error', 'Data gagal dihapus');
         }
     }
 }

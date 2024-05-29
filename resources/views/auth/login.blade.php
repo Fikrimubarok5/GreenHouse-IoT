@@ -1,49 +1,33 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+@extends('layouts.guest')
 
+@section('content')
+    <a href="./index.html" class="py-3 text-center text-nowrap logo-img d-block w-100">
+    <img src="../assets/images/logos/logo.svg" alt="">
+    </a>
+    <p class="text-center">Your Social Campaigns</p>
     <form method="POST" action="{{ route('login') }}">
         @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
+        <div class="mb-3">
+            <label for="email" class="form-label">Username</label>
+            <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            {{-- <x-input-error :messages="$errors->get('password')" class="mt-2" /> --}}
+        <div class="mb-4">
+            <label for="password" class="form-label">Password</label>
+            <input name="password" type="password" class="form-control" id="exampleInputPassword1">
         </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+        <div class="mb-4 d-flex align-items-center justify-content-between">
+            <div class="form-check">
+            <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked" checked name="remember">
+            <label class="form-check-label text-dark" for="flexCheckChecked">
+                Remeber me
             </label>
+            </div>
+            <a class="text-primary fw-bold" href="./index.html">Forgot Password ?</a>
         </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-            @if (Route::has('register'))
-            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-            @endif
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
+        <button type="submit" class="py-8 mb-4 btn btn-primary w-100 fs-4 rounded-2">Sign In</button>
+        <div class="d-flex align-items-center justify-content-center">
+            <p class="mb-0 fs-4 fw-bold">New to Matdash?</p>
+            <a class="text-primary fw-bold ms-2" href="{{ route('register') }}">Create an account</a>
         </div>
     </form>
-</x-guest-layout>
+@endsection
