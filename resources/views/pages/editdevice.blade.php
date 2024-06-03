@@ -14,6 +14,17 @@
                         <label>Nama Sensor</label>
                         <input type="text" name="name" class="form-control" value="{{ $device->name }}">
                     </div>
+
+                    <div class="form-group">
+                        <label>MIN Value</label>
+                        <input type="text" name="min_value" class="form-control" value="{{ $device->min_value }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>MAX Value</label>
+                        <input type="text" name="max_value" class="form-control" value="{{ $device->max_value }}">
+                    </div>
+
                     <div class="form-group">
                         <label>Type Sensor</label>
                         <br>

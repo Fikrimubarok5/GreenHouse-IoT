@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Device extends Model
 {
-    protected $fillable = ['name','type','value'];
+    protected $fillable = ['name','type','value','min_value','max_value'];
 
     protected $attributes = [
         'value' => 0,

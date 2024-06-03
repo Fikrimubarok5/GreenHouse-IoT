@@ -4,7 +4,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\AuthenticatedSessionController as AuthController;
 use App\Http\Controllers\Api\DeviceController;
 use App\Http\Controllers\Api\DeviceLogController;
-use App\Http\Controllers\Api\DashboardController;
+use App\Http\Controllers\Api\DashboardController;;
+use App\Http\Controllers\Api\SaklarController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,10 +50,9 @@ Route::controller(DeviceController::class)->group(function () {
     Route::delete('/device/{id}', 'destroy')->name('device.destroy');
 })->middleware(['auth', 'verified'])->name('device');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+Route::controller(SaklarController::class)->group(function () {
+    Route::get('/saklar', 'index')->name('saklar');
+})->middleware(['auth', 'verified'])->name('saklar');
+
 
 require __DIR__.'/auth.php';

@@ -35,13 +35,18 @@ class DeviceController extends Controller
     {
         $request->validate( [
             'name' => 'required',
+            'min_value' => 'required_if:type,sensor|nullable|integer',
+            'max_value' => 'required_if:type,sensor|nullable|integer',
             'type' => 'required|in:Sensor,Actuator',
         ]);
 
         $device = Device::create([
             'name' => $request->input('name'),
+            'min_value' => $request->type === 'sensor' ? $request->input('min_value') : null,
+            'max_value' => $request->type === 'sensor' ? $request->input('max_value') : null,
             'type' => $request->input('type'),
         ]);
+
 
         if ($device) {
             return redirect('/api/device')->with('success', 'Data saved');
@@ -82,6 +87,8 @@ class DeviceController extends Controller
 
         $request->validate( [
             'name' => 'required',
+            'min_value' => 'required_if:type,sensor|nullable|integer',
+            'max_value' => 'required_if:type,sensor|nullable|integer',
             'type' => 'required',
         ]);
 

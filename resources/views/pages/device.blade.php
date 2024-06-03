@@ -26,6 +26,8 @@
                             <th scope="col">id</th>
                             <th scope="col">Nama Sensor</th>
                             <th scope="col">Jenis</th>
+                            <th scope="col">MIN Data</th>
+                            <th scope="col">MAX Data</th>
                             <th scope="col">Data</th>
                             <th scope="col">Aksi</th>
                             </tr>
@@ -39,6 +41,8 @@
                                 <a href="{{ Route('devicelog.show',[$device->id])}}">{{ $device->name }}</a>
                             </td>
                             <td>{{ $device->type }}</td>
+                            <td>{{ $device["min_value"] }}</td>
+                            <td>{{ $device["max_value"] }}</td>
                             <td>{{ $device["value"] }}</td>
                             <td class="d-flex align-items-center ">
                                 <a class="flex-shrink-0 btn btn-warning me-2" href="#" data-bs-toggle="modal" data-bs-target="#editModal{{ Route('device.show',$device->id  )}}" data-bs-whatever="{{ Route('device.show',$device->id)}}">Edit</a>
@@ -66,9 +70,9 @@
         <div class="px-6 py-6 text-center">
             <p class="mb-0 fs-4">Developed by <a href="https://www.instagram.com/fikrimubarok05/" target="_blank"
                 class="pe-1 text-primary text-decoration-underline">@fikrimubarok05</a> 2024</p>
-          </div>
+        </div>
     </div>
-</div>
+{{-- </div> --}}
 
     <!-- Tambah Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -85,6 +89,16 @@
                             <div class="form-group">
                               <label>Nama Sensor</label>
                               <input type="text" name="name" class="form-control" placeholder="Masukkan Nama Sensor">
+                            </div>
+
+                            <div class="form-group">
+                              <label>MIN Value</label>
+                              <input type="number" name="min_value" id="min_value" class="form-control" placeholder="Masukkan nilai Minimal">
+                            </div>
+
+                            <div class="form-group">
+                                <label>MAX Value</label>
+                                <input type="number" name="max_value" id="max_value" class="form-control" placeholder="Masukkan nilai Maximal">
                             </div>
 
                             <div class="form-group">
@@ -106,38 +120,19 @@
         </div>
     </div>
 
-    <!-- Edit Modal -->
-    {{-- <div class="modal fade" id="editModal{{ Route('device.show',[$device->id])}}"  tabindex="-1" aria-labelledby="editModalLabel{{ Route('device.show',[$device->id])}}" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit Device</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="{{ Route('device.update',[$device->id]) }}" method="POST">
-                    @csrf
-                    @method('PUT')
-                    <div class="modal-body">
+    <script>
+        document.getElementById('type').addEventListener('change', function () {
+            var type = this.value;
+            var minValueInput = document.getElementById('min_value');
+            var maxValueInput = document.getElementById('max_value');
 
-                        <div class="form-group">
-                            <label>Nama Sensor</label>
-                            <input type="text" name="name" class="form-control" value="{{ $device->name }}">
-                        </div>
-                        <div class="form-group">
-                            <label>Type Sensor</label>
-                            <br>
-                            <select class="form-control" name="type" id="type">
-                                <option value="Sensor">Sensor</option>
-                                <option value="Actuator">Actuator</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div> --}}
+            if (type === 'sensor') {
+                minValueInput.required = true;
+                maxValueInput.required = true;
+            } else {
+                minValueInput.required = false;
+                maxValueInput.required = false;
+            }
+        });
+    </script>
 @endsection
