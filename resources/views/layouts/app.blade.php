@@ -60,6 +60,12 @@
                 <span class="hide-menu">Sensor</span>
               </a>
             </li>
+            {{-- <li class="sidebar-item">
+              <a class="sidebar-link" href="{{ route('jenis') }}" aria-expanded="false">
+                <iconify-icon icon="solar:layers-minimalistic-bold-duotone"></iconify-icon>
+                <span class="hide-menu">Jenis Sensor</span>
+              </a>
+            </li> --}}
             <li>
               <span class="sidebar-divider lg"></span>
             </li>

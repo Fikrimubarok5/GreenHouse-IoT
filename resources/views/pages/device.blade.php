@@ -25,6 +25,7 @@
                             <th scope="col">No</th>
                             <th scope="col">id</th>
                             <th scope="col">Nama Sensor</th>
+                            <th scope="col">Type</th>
                             <th scope="col">Jenis</th>
                             <th scope="col">MIN Data</th>
                             <th scope="col">MAX Data</th>
@@ -41,6 +42,7 @@
                                 <a href="{{ Route('devicelog.show',[$device->id])}}">{{ $device->name }}</a>
                             </td>
                             <td>{{ $device->type }}</td>
+                            <td>{{ $device["jenis"] }}</td>
                             <td>{{ $device["min_value"] }}</td>
                             <td>{{ $device["max_value"] }}</td>
                             <td>{{ $device["value"] }}</td>
@@ -109,6 +111,22 @@
                                     <option value="Actuator">Actuator</option>
                                 </select>
                             </div>
+
+                            <div class="form-group">
+                                <label>Jenis Sensor</label>
+                                <br>
+                                <select class="form-control" name="jenis" id="type">
+                                    @foreach ($jeniss as $jenis)
+                                        <option value="{{ $jenis->id }}">{{ $jenis->jenis }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Jenis Sensor</label>
+                                <input type="text" name="jenis" class="form-control" value="{{ $device->jenis }}">
+                            </div>
+
                         </div>
                     </div>
                     <div class="modal-footer">

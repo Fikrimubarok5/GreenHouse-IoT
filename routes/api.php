@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\DeviceController;
 use App\Http\Controllers\Api\DeviceLogController;
 use App\Http\Controllers\Api\DashboardController;;
 use App\Http\Controllers\Api\SaklarController;
+use App\Http\Controllers\Api\JenisController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +42,13 @@ Route::controller(DeviceLogController::class)->group(function () {
     Route::get('/devicelog/{id}', 'show')->name('devicelog.show');
     Route::post('/devicelog', 'store')->name('devicelog.store');
 })->middleware(['auth', 'verified'])->name('device');
+
+Route::controller(JenisController::class)->group(function () {
+    Route::get('/jenis', 'index')->name('jenis');
+    Route::post('/jenis', 'store')->name('jenis.store');
+    Route::get('/jenis/{id}',  'show')->name('jenis.show');
+    Route::put('/jenis/{id}',  'update')->name('jenis.update');
+})->middleware(['auth', 'verified'])->name('jenis');
 
 Route::controller(DeviceController::class)->group(function () {
     Route::get('/device', 'index')->name('device');
