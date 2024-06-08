@@ -43,26 +43,26 @@ class DeviceController extends Controller
             'jenis' => 'required',
         ]);
 
-        $topic = 'GreenHouse/'.$request->jenis;
+        // $topic = 'GreenHouse/'.$request->jenis;
 
-        $data = [
-            'name' => $request->input('name'),
-            'min_value' => $request->type === 'sensor' ? $request->input('min_value') : null,
-            'max_value' => $request->type === 'sensor' ? $request->input('max_value') : null,
-            'type' => $request->input('type'),
-            'jenis' => $request->input('jenis'),
-        ];
+        // $data = [
+        //     'name' => $request->input('name'),
+        //     'min_value' => $request->type === 'sensor' ? $request->input('min_value') : null,
+        //     'max_value' => $request->type === 'sensor' ? $request->input('max_value') : null,
+        //     'type' => $request->input('type'),
+        //     'jenis' => $request->input('jenis'),
+        // ];
 
-        $mqtt = MQTT::connection();
-        $mqtt->publish($topic, json_encode($data) );
+        // $mqtt = MQTT::connection();
+        // $mqtt->publish($topic, json_encode($data) );
 
         $device = Device::create($request->all());
 
-        // if(Jenis::where('id', $device->jenis_id)->exists()){
-        //     $jenis = Jenis::find($request->jenis_id);
-        //     $jenis->jenis = $request->jenis;
-        //     $jenis->save();
-        // }
+        if(Jenis::where('id', $device->jenis_id)->exists()){
+            $jenis = Jenis::find($request->jenis_id);
+            $jenis->jenis = $request->jenis;
+            $jenis->save();
+        }
 
 
         if ($device) {
