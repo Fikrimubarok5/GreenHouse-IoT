@@ -14,8 +14,13 @@ return new class extends Migration
         Schema::create('devices', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->double('value');
+            $table->enum('type', ['Sensor', 'Actuator']);
+            $table->string('jenis');
+            $table->float('min_value');
+            $table->float('max_value');
+            $table->double('value')->default(0);
             $table->timestamps();
+            $table->integer('jenis_id');
         });
     }
 
