@@ -40,16 +40,16 @@ class DeviceLogController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate( [
-        //     'device_id'=> 'required',
-        //     'value'=> 'required',
-        // ]);
+        $request->validate( [
+            'device_id'=> 'required',
+            'value'=> 'required',
+        ]);
 
 
-        $data = [
-            'device_id'=> $request->device_id,
-            'value'=> $request->device_id,
-        ];
+        // $data = [
+        //     'device_id'=> $request->device_id,
+        //     'value'=> $request->device_id,
+        // ];
 
             // $topic = 'GreenHouse/'.$device->jenis;
 
@@ -67,19 +67,19 @@ class DeviceLogController extends Controller
 
         if(Device::where('id', $request->device_id)->exists()){
             $device = Device::find($request->device_id);
-            // $device->value = $request->value;
+            $device->value = $request->value;
             // $mqtt = MQTT::connection();
             // $mqtt->publish('GreenHouse/'.$device->jenis, json_encode($DeviceLog) );
-            // $device->save();
-            if ($device->save()) {
-                $data = [
-                  'device_id' => $request->device_id,
-                  'value' => $request->value,
-                ];
+            $device->save();
+            // if ($device->save()) {
+            //     $data = [
+            //       'device_id' => $request->device_id,
+            //       'value' => $request->value,
+            //     ];
 
-                $mqtt = MQTT::connection();
-                $mqtt->publish('GreenHouse/'.$device->jenis, json_encode($data));
-            }
+            //     $mqtt = MQTT::connection();
+            //     $mqtt->publish('GreenHouse/'.$device->jenis, json_encode($data));
+            // }
         }
 
 
