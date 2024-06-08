@@ -5,10 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GreenHouse-IoT</title>
-  {{-- <link rel="shortcut icon" type="image/png" href="/assets/images/logos/favicon.png" /> --}}
-  {{-- <link rel="stylesheet" href="/assets/css/styles.min.css" /> --}}
-  <link rel="shortcut icon" type="image/png" href="{{ URL::asset('assets/images/logos/favicon.png') }}" />
-  <link rel="stylesheet" href={{URL::asset("assets/css/styles.min.css")}}>
+  <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/favicon.png') }}" />
+  <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" />
 </head>
 
@@ -62,28 +60,7 @@
                 <span class="hide-menu">Sensor</span>
               </a>
             </li>
-            {{-- <li class="sidebar-item">
-              <a class="sidebar-link" href="{{ route('jenis') }}" aria-expanded="false">
-                <iconify-icon icon="solar:layers-minimalistic-bold-duotone"></iconify-icon>
-                <span class="hide-menu">Jenis Sensor</span>
-              </a>
-            </li> --}}
-            <li>
-              <span class="sidebar-divider lg"></span>
-            </li>
-            <li class="nav-small-cap">
-              <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-4"></iconify-icon>
-              <span class="hide-menu">AUTH</span>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="{{ route('pages.index') }}" aria-expanded="false">
-                <iconify-icon icon="solar:user-line-duotone"></iconify-icon>
-                <span class="hide-menu">User</span>
-              </a>
-            </li>
-            <li>
-              <span class="sidebar-divider lg"></span>
-            </li>
+            <!-- Other sidebar items... -->
           </ul>
         </nav>
         <!-- End Sidebar navigation -->
@@ -114,7 +91,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link " href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                   aria-expanded="false">
-                  <img src="../assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                  <img src="{{ asset('assets/images/profile/user-1.jpg') }}" alt="" width="35" height="35" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
@@ -137,24 +114,14 @@
       @yield('content')
     </div>
   </div>
-  {{-- <link rel="stylesheet" href={{URL::asset("/css/sensorPage.css")}}> --}}
-  {{-- <script src="/assets/libs/jquery/dist/jquery.min.js"></script> --}}
-  <script src={{URL::asset("assets/libs/jquery/dist/jquery.min.js")}}></script>
-  {{-- <script src="/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script> --}}
-  <script src={{URL::asset("assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js")}}></script>
-  {{-- <script src="/assets/js/sidebarmenu.js"></script> --}}
-  <script src={{URL::asset("assets/js/sidebarmenu.js")}}></script>
-  {{-- <script src="/assets/js/app.min.js"></script> --}}
-  <script src={{URL::asset("assets/js/app.min.js")}}></script>
-  {{-- <script src="/assets/libs/apexcharts/dist/apexcharts.min.js"></script> --}}
-  <script src={{URL::asset("assets/libs/apexcharts/dist/apexcharts.min.js")}}></script>
-  {{-- <script src="/assets/libs/simplebar/dist/simplebar.js"></script> --}}
-  <script src={{URL::asset("assets/libs/simplebar/dist/simplebar.js")}}></script>
-  {{-- <script src="/assets/js/dashboard.js"></script> --}}
-  <script src={{URL::asset("assets/js/dashboard.js")}}></script>
-  <!-- solar icons -->
+  <script src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
+  <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('assets/js/sidebarmenu.js') }}"></script>
+  <script src="{{ asset('assets/js/app.min.js') }}"></script>
+  <script src="{{ asset('assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
+  <script src="{{ asset('assets/libs/simplebar/dist/simplebar.js') }}"></script>
+  <script src="{{ asset('assets/js/dashboard.js') }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
-  {{-- <script src={{URL::asset("https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js")}}></script> --}}
 </body>
 
 </html>
