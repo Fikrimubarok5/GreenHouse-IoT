@@ -55,9 +55,9 @@
     </script>
 <div class="body-wrapper-inner">
     <div class="container-fluid">
-        <!-- <div class="mb-3 row">
+        {{-- <!-- <div class="mb-3 row">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Data</button>
-        </div> -->
+        </div> --> --}}
         <div class="row">
             <div class="d-flex justify-content-between">
                 <div class="card w-50 me-2">
