@@ -109,6 +109,7 @@ class DeviceController extends Controller
             'type' => 'required',
             'jenis' => 'required',
         ]);
+
         $device->update($request->all());
 
 <<<<<<< Updated upstream
