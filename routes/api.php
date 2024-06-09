@@ -21,9 +21,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::controller(AuthController::class)->group(function () {
-    Route::get('/', 'create')->name('login');
-});
+// Route::controller(AuthController::class)->group(function () {
+//     Route::get('/', 'create')->name('login');
+// });
 
 // Route::get('/', function () {
 //     return view('/pages/dashboard');
