@@ -117,6 +117,7 @@ class DeviceController extends Controller
                 'device' => $device
             ]);
         } else {
+
             if ($device) {
                 return redirect('/api/device')->with('success', 'Data berhasil diubah');
             } else {
