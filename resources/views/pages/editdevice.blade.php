@@ -36,16 +36,6 @@
 
                     <div class="form-group">
                         <label>Jenis Sensor</label>
-                        <br>
-                        <select class="form-control" name="jenis" id="type">
-                            @foreach ($jeniss as $jenis)
-                                <option value="{{ $jenis->id }}">{{ $jenis->jenis }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Jenis Sensor</label>
                         <input type="text" name="jenis" class="form-control" value="{{ $device->jenis }}">
                     </div>
                 </div>
