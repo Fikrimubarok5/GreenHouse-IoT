@@ -61,6 +61,7 @@
             var switchElement = document.getElementById('flexSwitchCheckDefault1');
             switchElement.addEventListener('change', toggleSwitch);
         });
+
     </script>
 </head>
 
