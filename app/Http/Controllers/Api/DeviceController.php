@@ -108,6 +108,7 @@ class DeviceController extends Controller
             'jenis' => 'required',
         ]);
 
+
         $device->update($request->all());
 
         if ($request->wantsJson()) {
