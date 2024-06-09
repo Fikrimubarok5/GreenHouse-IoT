@@ -98,7 +98,7 @@ class DeviceController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-{
+    {
         $device = Device::findOrFail($id);
 
 
@@ -112,6 +112,8 @@ class DeviceController extends Controller
 
         $device->update($request->all());
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
         // return response()->json([
         //     'status' => 'success',
         //     'message' => 'Device telah di update.',
@@ -130,6 +132,28 @@ class DeviceController extends Controller
                 return redirect('/api/device')->with('error', 'Data gagal diubah');
             }
         }
+=======
+=======
+>>>>>>> Stashed changes
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Device telah di update.',
+            'device' => $device
+        ]);
+        // if ($device) {
+        //     return redirect('/api/device')->with('success', 'Data berhasil diubah');
+        //     // return response()->json([
+        //     //     "message" => "device telah ditambahkan.",
+        //     //     "device" => $device
+        //     // ], 201);
+        // } else {
+        //     return redirect('/api/device')->with('error', 'Data gagal diubah');
+        //     // return response()->json(['message' => 'Device tidak ditemukan.'], 404);
+        // }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     }
 
     /**

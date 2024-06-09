@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GreenHouse-IoT</title>
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
   <link rel="shortcut icon" type="image/png" href="{{ asset("assets/images/logos/favicon.png") }}" />
   <link rel="stylesheet" href="{{ asset("assets/css/styles.min.css") }}" />
   <link rel="stylesheet" href="http://datapanel.fikrimubarok5.web.id/GreenHouse-IoT/public/assets/css/styles.min.css">
@@ -63,6 +65,17 @@
         });
 
     </script>
+=======
+=======
+>>>>>>> Stashed changes
+  <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/favicon.png') }}" />
+  <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
+  <!--<link rel="stylesheet" href="http://datapanel.fikrimubarok5.web.id/GreenHouse-IoT/public/assets/css/styles.min.css">-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 </head>
 
 <body>
@@ -167,7 +180,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link " href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                   aria-expanded="false">
-                  <img src="../assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                  <img src="/assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
@@ -190,24 +203,52 @@
       @yield('content')
     </div>
   </div>
-  {{-- <link rel="stylesheet" href={{URL::asset("/css/sensorPage.css")}}> --}}
+  {{-- <link rel="stylesheet" href={{asset("/css/sensorPage.css")}}> --}}
   {{-- <script src="/assets/libs/jquery/dist/jquery.min.js"></script> --}}
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
   <script src={{asset("assets/libs/jquery/dist/jquery.min.js")}}></script>
   {{-- <script src="/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script> --}}
   <script src={{asset("assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js")}}></script>
   {{-- <script src="/assets/js/sidebarmenu.js"></script> --}}
   <script src={{asset("assets/js/sidebarmenu.js")}}></script>
+=======
+  <script src='{{asset("assets/libs/jquery/dist/jquery.min.js")}}'></script>
+  {{-- <script src="/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script> --}}
+  <script src='{{asset("assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js")}}'></script>
+  {{-- <script src="/assets/js/sidebarmenu.js"></script> --}}
+  <script src='{{asset("assets/js/sidebarmenu.js")}}'></script>
+>>>>>>> Stashed changes
+=======
+  <script src='{{asset("assets/libs/jquery/dist/jquery.min.js")}}'></script>
+  {{-- <script src="/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script> --}}
+  <script src='{{asset("assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js")}}'></script>
+  {{-- <script src="/assets/js/sidebarmenu.js"></script> --}}
+  <script src='{{asset("assets/js/sidebarmenu.js")}}'></script>
+>>>>>>> Stashed changes
   {{-- <script src="/assets/js/app.min.js"></script> --}}
   <script src={{asset("assets/js/app.min.js")}}></script>
   {{-- <script src="/assets/libs/apexcharts/dist/apexcharts.min.js"></script> --}}
   <script src={{asset("assets/libs/apexcharts/dist/apexcharts.min.js")}}></script>
   {{-- <script src="/assets/libs/simplebar/dist/simplebar.js"></script> --}}
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
   <script src={{asset("assets/libs/simplebar/dist/simplebar.js")}}></script>
   {{-- <script src="/assets/js/dashboard.js"></script> --}}
   <script src={{asset("assets/js/dashboard.js")}}></script>
+=======
+  <script src='{{asset("assets/libs/simplebar/dist/simplebar.js")}}'></script>
+  {{-- <script src="/assets/js/dashboard.js"></script> --}}
+  <script src="{{asset('assets/js/dashboard.js')}}"></script>
+>>>>>>> Stashed changes
+=======
+  <script src='{{asset("assets/libs/simplebar/dist/simplebar.js")}}'></script>
+  {{-- <script src="/assets/js/dashboard.js"></script> --}}
+  <script src="{{asset('assets/js/dashboard.js')}}"></script>
+>>>>>>> Stashed changes
   <!-- solar icons -->
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
-  {{-- <script src={{URL::asset("https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js")}}></script> --}}
+  {{-- <script src={{asset("https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js")}}></script> --}}
 </body>
 
 </html>
