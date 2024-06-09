@@ -100,8 +100,6 @@ class DeviceController extends Controller
     public function update(Request $request, string $id)
 {
         $device = Device::findOrFail($id);
-
-
         $request->validate( [
             'name' => 'required',
             'min_value' => 'required_if:type,sensor|nullable|integer',
