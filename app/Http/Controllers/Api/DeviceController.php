@@ -110,14 +110,8 @@ class DeviceController extends Controller
             'jenis' => 'required',
         ]);
 
-
         $device->update($request->all());
 
-        // return response()->json([
-        //     'status' => 'success',
-        //     'message' => 'Device telah di update.',
-        //     'device' => $device
-        // ]);
         if ($request->wantsJson()) {
             return response()->json([
                 'status' => 'success',
