@@ -118,15 +118,18 @@ class DeviceController extends Controller
         //     'message' => 'Device telah di update.',
         //     'device' => $device
         // ]);
-        if ($device) {
-            return redirect('/api/device')->with('success', 'Data berhasil diubah');
-            // return response()->json([
-            //     "message" => "device telah ditambahkan.",
-            //     "device" => $device
-            // ], 201);
+        if ($request->wantsJson()) {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Device telah di update.',
+                'device' => $device
+            ]);
         } else {
-            return redirect('/api/device')->with('error', 'Data gagal diubah');
-            // return response()->json(['message' => 'Device tidak ditemukan.'], 404);
+            if ($device) {
+                return redirect('/api/device')->with('success', 'Data berhasil diubah');
+            } else {
+                return redirect('/api/device')->with('error', 'Data gagal diubah');
+            }
         }
     }
 
