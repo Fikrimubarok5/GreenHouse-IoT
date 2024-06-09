@@ -34,9 +34,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::controller(DashboardController::class)->group(function () {
-    Route::get('/dashboard', 'index')->name('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::controller(DashboardController::class)->group(function () {
+//     Route::get('/dashboard', 'index')->name('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::controller(DeviceLogController::class)->group(function () {
     Route::get('/devicelog/{id}', 'show')->name('devicelog.show');
