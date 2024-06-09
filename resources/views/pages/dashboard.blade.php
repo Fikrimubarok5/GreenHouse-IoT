@@ -25,6 +25,7 @@
         </div>
     </div>
 
+
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
