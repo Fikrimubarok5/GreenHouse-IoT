@@ -63,4 +63,4 @@ Route::controller(SaklarController::class)->group(function () {
 })->middleware(['auth', 'verified'])->name('saklar');
 
 
-require __DIR__.'/auth.php';
+// require __DIR__.'/auth.php';
