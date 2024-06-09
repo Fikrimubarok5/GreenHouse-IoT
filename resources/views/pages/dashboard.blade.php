@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <script src="{{ asset("assets/js/highcharts.js") }}"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             @foreach ($devices as $device)
