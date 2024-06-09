@@ -114,6 +114,7 @@ class DeviceController extends Controller
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         // return response()->json([
         //     'status' => 'success',
         //     'message' => 'Device telah di update.',
@@ -135,6 +136,8 @@ class DeviceController extends Controller
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
         return response()->json([
             'status' => 'success',
             'message' => 'Device telah di update.',
@@ -151,6 +154,9 @@ class DeviceController extends Controller
         //     // return response()->json(['message' => 'Device tidak ditemukan.'], 404);
         // }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
