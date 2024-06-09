@@ -69,11 +69,11 @@
                 </div>
             </div>
         </div>
-        <div class="px-6 py-6 text-center">
-            <p class="mb-0 fs-4">Developed by <a href="https://www.instagram.com/fikrimubarok05/" target="_blank"
-                class="pe-1 text-primary text-decoration-underline">@fikrimubarok05</a> 2024</p>
         </div>
-    </div>
+            <div class="px-6 py-6 text-center">
+                <p class="mb-0 fs-4">Developed by <a href="https://www.instagram.com/fikrimubarok05/" target="_blank"
+                    class="pe-1 text-primary text-decoration-underline">@fikrimubarok05</a> 2024</p>
+            </div>
 {{-- </div> --}}
 
     <!-- Tambah Modal -->
