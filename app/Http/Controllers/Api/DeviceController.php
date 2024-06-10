@@ -104,8 +104,8 @@ class DeviceController extends Controller
 
         $request->validate( [
             'name' => 'required',
-            'min_value' => 'required_if:type,sensor|nullable|integer',
-            'max_value' => 'required_if:type,sensor|nullable|integer',
+            'min_value' => 'required_if:type,sensor|nullable',
+            'max_value' => 'required_if:type,sensor|nullable',
             'type' => 'required',
             'jenis' => 'required',
         ]);
