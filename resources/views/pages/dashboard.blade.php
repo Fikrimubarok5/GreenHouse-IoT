@@ -29,7 +29,8 @@
     {{-- <script src="{{ asset("assets/js/highcharts.js") }}"></script> --}}
     {{-- <script src="https://code.highcharts.com/10/highcharts.js"></script> --}}
     {{-- <script src="https://code.highcharts.com/highcharts.js"></script> --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/11.4.3/highcharts.min.js" ></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/11.4.3/highcharts.min.js" ></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/11.4.3/highcharts.js" integrity="sha512-qCaTHDKX58QLNYgW+wHYhMDNak+/fN7qg1ZNMsbmDhyOnceqaOOtPCLIELLpdRdvIngZZPw1rmrtmc9EFfJLOQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         // import Highcharts from '{{ URL::asset('assets/code/es-modules/masters/highstock.src.js') }}';
         document.addEventListener('DOMContentLoaded', function () {
@@ -44,7 +45,7 @@
                     console.log(log);
                     return [
                          new Date(log.x).getTime(),
-                         log.y
+                         parseInt(log.y)
                     ];
                 });
 

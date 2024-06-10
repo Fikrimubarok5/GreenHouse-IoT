@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="{{ asset("assets/css/styles.min.css") }}" />
     <link rel="stylesheet" href="{{ asset("assets/dist/css/bootstrap.min.css") }}" />
     <link href="{{ asset("assets/dist/css/bootstrap.min.css") }}" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.3/mqttws31.min.js"></script>
-
 </head>
 
 <body>
