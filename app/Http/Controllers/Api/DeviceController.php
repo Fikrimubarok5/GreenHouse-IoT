@@ -112,11 +112,6 @@ class DeviceController extends Controller
 
 
         $device->update($request->all());
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
         // return response()->json([
         //     'status' => 'success',
         //     'message' => 'Device telah di update.',
@@ -135,18 +130,7 @@ class DeviceController extends Controller
                 return redirect('/api/device')->with('error', 'Data gagal diubah');
             }
         }
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Device telah di update.',
-            'device' => $device
-        ]);
+
         // if ($device) {
         //     return redirect('/api/device')->with('success', 'Data berhasil diubah');
         //     // return response()->json([
@@ -157,16 +141,6 @@ class DeviceController extends Controller
         //     return redirect('/api/device')->with('error', 'Data gagal diubah');
         //     // return response()->json(['message' => 'Device tidak ditemukan.'], 404);
         // }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     }
 
     /**
