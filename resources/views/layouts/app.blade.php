@@ -10,57 +10,7 @@
     <link rel="stylesheet" href="{{ asset("assets/dist/css/bootstrap.min.css") }}" />
     <link href="{{ asset("assets/dist/css/bootstrap.min.css") }}" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.3/mqttws31.min.js"></script>
-    <script type="text/javascript">
-        var client;
 
-        function connect() {
-            client = new Paho.MQTT.Client("x119914d.ala.asia-southeast1.emqxsl.com", 8883, "clientId");
-            client.onConnectionLost = onConnectionLost;
-            client.onMessageArrived = onMessageArrived;
-
-            var options = {
-                onSuccess: onConnect,
-            };
-
-            client.connect(options);
-        }
-
-        function onConnect() {
-            console.log("Connected to broker");
-            // Optional: subscribe to a topic if needed
-            // client.subscribe("home/led");
-        }
-
-        function onConnectionLost(responseObject) {
-            if (responseObject.errorCode !== 0) {
-                console.log("onConnectionLost:" + responseObject.errorMessage);
-            }
-        }
-
-        function onMessageArrived(message) {
-            console.log("onMessageArrived:" + message.payloadString);
-        }
-
-        function sendMessage(message) {
-            var mqttMessage = new Paho.MQTT.Message(message);
-            mqttMessage.destinationName = "GreenHouse/Led";
-            client.send(mqttMessage);
-        }
-
-        function toggleSwitch(event) {
-            if (event.target.checked) {
-                sendMessage("ON");
-            } else {
-                sendMessage("OFF");
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            connect();
-            var switchElement = document.getElementById('flexSwitchCheckDefault1');
-            switchElement.addEventListener('change', toggleSwitch);
-        });
-    </script>
 </head>
 
 <body>
