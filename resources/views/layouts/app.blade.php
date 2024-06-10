@@ -111,7 +111,7 @@
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="{{ route('saklar') }}" aria-expanded="false">
                             <iconify-icon icon="solar:layers-minimalistic-bold-duotone"></iconify-icon>
-                            <span class="hide-menu">Sensor</span>
+                            <span class="hide-menu">Saklar</span>
                         </a>
                     </li>
                     {{-- <li class="sidebar-item">
