@@ -1,5 +1,5 @@
 
-<div class="modal fade" id="editModal {{ Route('device.show',[$device->id])}}" tabindex="-1" aria-labelledby="editModalLabel{{ Route('device.show',[$device->id])}}" aria-hidden="true">
+<div class="modal fade" id="editModal{{ Route('device.show',[$device->id])}}" tabindex="-1" aria-labelledby="editModalLabel{{ Route('device.show',[$device->id])}}" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -36,7 +36,7 @@
 
                     <div class="form-group">
                         <label>Jenis Sensor</label>
-                        <input type="text" name=wb"jenis" class="form-control" value="{{ $device->jenis }}">
+                        <input type="text" name="jenis" class="form-control" value="{{ $device->jenis }}">
                     </div>
                 </div>
                 <div class="modal-footer">
