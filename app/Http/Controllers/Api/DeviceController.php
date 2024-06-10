@@ -98,8 +98,10 @@ class DeviceController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-{
+    {
         $device = Device::findOrFail($id);
+
+
         $request->validate( [
             'name' => 'required',
             'min_value' => 'required_if:type,sensor|nullable|integer',
@@ -110,7 +112,11 @@ class DeviceController extends Controller
 
 
         $device->update($request->all());
-
+        // return response()->json([
+        //     'status' => 'success',
+        //     'message' => 'Device telah di update.',
+        //     'device' => $device
+        // ]);
         if ($request->wantsJson()) {
             return response()->json([
                 'status' => 'success',
@@ -118,13 +124,23 @@ class DeviceController extends Controller
                 'device' => $device
             ]);
         } else {
-
             if ($device) {
                 return redirect('/api/device')->with('success', 'Data berhasil diubah');
             } else {
                 return redirect('/api/device')->with('error', 'Data gagal diubah');
             }
         }
+
+        // if ($device) {
+        //     return redirect('/api/device')->with('success', 'Data berhasil diubah');
+        //     // return response()->json([
+        //     //     "message" => "device telah ditambahkan.",
+        //     //     "device" => $device
+        //     // ], 201);
+        // } else {
+        //     return redirect('/api/device')->with('error', 'Data gagal diubah');
+        //     // return response()->json(['message' => 'Device tidak ditemukan.'], 404);
+        // }
     }
 
     /**
