@@ -7,7 +7,7 @@
             <div class="d-flex justify-content-between">
                 <div class="card w-50 me-2">
                     <div class="card-body">
-                        <div class="switch-container d-flex">
+                        <div class="switch-container d-flex justify-content-between mb-9">
                             <div class="form-check form-switch" style="margin-left: 20px; flex: 1;">
                                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault1">
                                 <label class="form-check-label" for="flexSwitchCheckDefault1" id="switchLabel1">Lamp Indicator</label>
