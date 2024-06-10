@@ -38,6 +38,7 @@
                         <label>Jenis Sensor</label>
                         <input type="text" name="jenis" class="form-control" value="{{ $device->jenis }}">
                     </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
