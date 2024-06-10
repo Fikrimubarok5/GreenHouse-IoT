@@ -13,7 +13,9 @@ class SaklarController extends Controller
      */
     public function index()
     {
-        return view('pages.saklar');
+        return view('pages.saklar', [
+            'saklar' => Saklar::all(),
+        ]);
 
     }
 
@@ -30,7 +32,22 @@ class SaklarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $saklar = Saklar::create($request->all());
+
+        if ($saklar) {
+            return redirect('/api/saklar')->with('success', 'Data saved');
+            // return response()->json([
+            //     "message" => "device telah ditambahkan.",
+            //     "device" => $device
+            // ], 201);
+        } else {
+            return redirect('/api/saklar')->with('error', 'Failed to save data');
+            // return response()->json(['message' => 'Device tidak ditemukan.'], 404);
+        }
     }
 
     /**

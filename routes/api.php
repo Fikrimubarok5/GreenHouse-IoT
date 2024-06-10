@@ -59,6 +59,7 @@ Route::controller(DeviceController::class)->group(function () {
 })->middleware(['auth', 'verified'])->name('device');
 
 Route::controller(SaklarController::class)->group(function () {
+    Route::post('/saklar', 'store')->name('saklar.store');
     Route::get('/saklar', 'index')->name('saklar');
 })->middleware(['auth', 'verified'])->name('saklar');
 
